@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Transcribe & Summarize",
+    "version": "1.0",
+    "description": "Your extension description",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "downloads",
+      "tabs"
+    ],
+    "action": {
+      "default_popup": "src/popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "js": ["src/content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "src/background.js"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}
